@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            background: #444;
+            color: #fff;
+            padding: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+        }
+        code {
+            font-family: monospace;
+            color: #d63384;
+        }
+        footer {
+            text-align: center;
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HTML & CSS Documentation</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#html-tags">HTML Tags</a></li>
+            <li><a href="#attributes">Attributes</a></li>
+            <li><a href="#css-properties">CSS Properties</a></li>
+        </ul>
+    </nav>
+    <section id="html-tags">
+        <h2>HTML Tags</h2>
+        <p>HTML tags are the building blocks of web pages. Below are some commonly used tags:</p>
+        <ul>
+            <li><strong>&lt;h1&gt; to &lt;h6&gt;</strong> - Headings</li>
+            <li><strong>&lt;p&gt;</strong> - Paragraph</li>
+            <li><strong>&lt;a&gt;</strong> - Anchor (links)</li>
+            <li><strong>&lt;img&gt;</strong> - Image</li>
+            <li><strong>&lt;ul&gt;</strong>, <strong>&lt;ol&gt;</strong>, <strong>&lt;li&gt;</strong> - Lists</li>
+            <li><strong>&lt;div&gt;</strong>, <strong>&lt;span&gt;</strong> - Containers</li>
+        </ul>
+        <pre><code>&lt;h1&gt;This is a heading&lt;/h1&gt;
+&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+    </section>
+    <section id="attributes">
+        <h2>HTML Attributes</h2>
+        <p>Attributes provide additional information about an element.</p>
+        <ul>
+            <li><strong>href</strong> - Specifies the URL for an anchor tag.</li>
+            <li><strong>src</strong> - Specifies the source for an image.</li>
+            <li><strong>alt</strong> - Provides alternative text for an image.</li>
+            <li><strong>class</strong> - Specifies a class name for styling.</li>
+            <li><strong>id</strong> - Specifies a unique ID for an element.</li>
+        </ul>
+        <pre><code>&lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;
+&lt;img src="image.jpg" alt="Sample Image"&gt;</code></pre>
+    </section>
+    <section id="css-properties">
+        <h2>CSS Properties</h2>
+        <p>CSS is used to style HTML elements. Here are some commonly used properties:</p>
+        <ul>
+            <li><strong>color</strong> - Sets the text color.</li>
+            <li><strong>background-color</strong> - Sets the background color.</li>
+            <li><strong>font-size</strong> - Sets the font size.</li>
+            <li><strong>margin</strong> - Sets the space outside an element.</li>
+            <li><strong>padding</strong> - Sets the space inside an element.</li>
+        </ul>
+        <pre><code>p {
+    color: blue;
+    background-color: lightgray;
+    font-size: 16px;
+    margin: 10px;
+    padding: 5px;
+}</code></pre>
+    </section>
+    <footer>
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
