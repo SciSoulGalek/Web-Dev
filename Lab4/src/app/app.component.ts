@@ -4,7 +4,7 @@ import { ProductsComponent } from './products/products.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ProductsComponent], // Add this line
+  imports: [ProductsComponent], 
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
