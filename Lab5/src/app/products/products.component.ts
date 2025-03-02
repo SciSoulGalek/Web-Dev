@@ -1,24 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { ProductItemComponent } from '../product-item/product-item.component';
 
 @Component({
   selector: 'app-products',
-  imports: [CommonModule, FormsModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
+
 })
-export class ProductsComponent {
-  categories = [
-    {
-    name: "Smartphones",
-    products: [
+export class ProductsComponent implements OnInit {
+  products = [
       {
         name: "iPhone 15 Pro Max",
         description: "The latest Apple smartphone with A17 chip.",
         rating: 4.8,
         image: "https://resources.cdn-kaspi.kz/img/m/p/h81/had/86319870181406.jpg?format=preview-large",
         link: "https://kaspi.kz/shop/p/apple-iphone-15-pro-max-256gb-chernyi-113138363/?c=750000000",
+        category: "Smartphones",
         likes: 0
       },
       {
@@ -27,6 +30,7 @@ export class ProductsComponent {
         rating: 4.7,
         image: "https://resources.cdn-kaspi.kz/img/m/p/hd1/h74/84963524706334.png?format=preview-large",
         link: "https://kaspi.kz/shop/p/samsung-galaxy-s24-ultra-5g-12-gb-512-gb-chernyi-116044201/?c=750000000",
+        category: "Smartphones",
         likes: 0
       },
       {
@@ -35,6 +39,7 @@ export class ProductsComponent {
         rating: 4.6,
         image: "https://resources.cdn-kaspi.kz/img/m/p/hd1/hc9/84326216630302.jpg?format=preview-large",
         link: "https://kaspi.kz/shop/p/google-pixel-8-pro-12-gb-128-gb-chernyi-114017043/?c=750000000",
+        category: "Smartphones",
         likes: 0
       },
       {
@@ -43,6 +48,7 @@ export class ProductsComponent {
         rating: 4.5,
         image: "https://resources.cdn-kaspi.kz/img/m/p/h59/h39/85092022976542.png?format=preview-large",
         link: "https://kaspi.kz/shop/p/oneplus-12-16-gb-512-gb-zelenyi-116425234/?c=750000000",
+        category: "Smartphones",
         likes: 0
       },
       {
@@ -51,13 +57,9 @@ export class ProductsComponent {
         rating: 4.7,
         image: "https://resources.cdn-kaspi.kz/img/m/p/h73/hd9/85504363560990.jpg?format=preview-large",
         link: "https://kaspi.kz/shop/p/xiaomi-14-ultra-16-gb-512-gb-belyi-117684822/?c=750000000",
+        category: "Smartphones",
         likes: 0
-      }
-    ]
-  },
-  {
-    name: "Laptops",
-    products: [
+      },
       {
         name: "MacBook Air M2",
         description: "Apple's lightweight laptop with M2 chip.",
@@ -73,7 +75,7 @@ export class ProductsComponent {
         rating: 4.6,
         image: "https://resources.cdn-kaspi.kz/img/m/p/hfe/h28/85628076032030.png?format=preview-large",
         link: "https://kaspi.kz/shop/p/asus-rog-strix-g16-16-32-gb-ssd-1000-gb-dos-g614ji-n4181-90nr0d41-m00v20-118060952/?c=750000000",
-        category: "Laptop",
+        category: "Laptops and Tablets",
         likes: 0
       },
       {
@@ -82,7 +84,7 @@ export class ProductsComponent {
         rating: 4.9,
         image: "https://resources.cdn-kaspi.kz/img/m/p/h3c/h53/64896210403358.jpg?format=preview-large",
         link: "https://kaspi.kz/shop/p/apple-ipad-pro-2022-11-wi-fi-11-djuim-8-gb-256-gb-seryi-107276752/?c=750000000",
-        category: "Tablet",
+        category: "Laptops and Tablets",
         likes: 0
       },
       {
@@ -91,6 +93,7 @@ export class ProductsComponent {
         rating: 4.5,
         image: "https://resources.cdn-kaspi.kz/img/m/p/h69/hb0/85987722395678.jpg?format=preview-large",
         link: "https://kaspi.kz/shop/p/lenovo-legion-5-16-32-gb-ssd-1000-gb-win-11-pro-16irx9-83dg006wrk-119270896/?c=750000000",
+        category: "Laptops and Tablets",
         likes: 0
       },
       {
@@ -99,20 +102,16 @@ export class ProductsComponent {
         rating: 4.6,
         image: "https://resources.cdn-kaspi.kz/img/m/p/h82/hbb/85832389918750.png?format=preview-large",
         link: "https://kaspi.kz/shop/p/hp-spectre-x360-14-16-gb-ssd-1000-gb-win-11-14-eu0003ci-a19gjea-118723256/?c=750000000",
+        category: "Laptops and Tablets",
         likes: 0
-      }
-    ]
-  },
-  {
-    name: "TVs and Consoles",
-    products: [
+      },
       {
         name: "Samsung 55” 4K Smart TV",
         description: "Ultra HD Smart TV with vibrant colors and deep contrasts.",
         rating: 4.7,
         image: "https://resources.cdn-kaspi.kz/img/m/p/hdd/h5e/85887766167582.jpg?format=preview-large",
         link: "https://kaspi.kz/shop/p/samsung-ue55du7100uxce-140-sm-chernyi-118907988/?c=750000000",
-        category: "TV",
+        category: "TVs and Consoles",
         likes: 0
       },
       {
@@ -121,6 +120,7 @@ export class ProductsComponent {
         rating: 4.9,
         image: "https://resources.cdn-kaspi.kz/img/m/p/h02/h59/63948652249118.jpg?format=preview-large",
         link: "https://kaspi.kz/shop/p/sony-playstation-5-belyi-100746577/?c=750000000",
+        category: "TVs and Consoles",
         likes: 0
       },
       {
@@ -129,6 +129,7 @@ export class ProductsComponent {
         rating: 4.8,
         image: "https://resources.cdn-kaspi.kz/img/m/p/p30/pe1/12631853.png?format=preview-large",
         link: "https://kaspi.kz/shop/p/xbox-series-x-1tb-belyi-131268902/?c=750000000",
+        category: "TVs and Consoles",
         likes: 0
       },
       {
@@ -137,6 +138,7 @@ export class ProductsComponent {
         rating: 4.9,
         image: "https://resources.cdn-kaspi.kz/img/m/p/hc0/h4b/86202449985566.png?format=preview-large",
         link: "https://kaspi.kz/shop/p/lg-oled65g4rla-165-sm-chernyi-120091680/?c=750000000",
+        category: "TVs and Consoles",
         likes: 0
       },
       {
@@ -145,13 +147,9 @@ export class ProductsComponent {
         rating: 4.6,
         image: "https://resources.cdn-kaspi.kz/img/m/p/h09/h4c/64191552651294.jpg?format=preview-large",
         link: "https://kaspi.kz/shop/p/nintendo-switch-oled-krasnyi-sinii-102984631/?c=750000000",
+        category: "TVs and Consoles",
         likes: 0
-      }
-    ]
-  },
-  {
-    name: "Gadgets",
-    products: [
+      },
       {
         name: "Sony WH-1000XM5",
         description: "Industry-leading noise-canceling wireless headphones.",
@@ -167,6 +165,7 @@ export class ProductsComponent {
         rating: 4.5,
         image: "https://resources.cdn-kaspi.kz/img/m/p/hfd/h66/65114258571294.jpg?format=preview-large",
         link: "https://kaspi.kz/shop/p/xiaomi-mi-band-7-chernyi-105075100/?c=750000000",
+        category: "Accessories",
         likes: 0
       },
       {
@@ -175,6 +174,7 @@ export class ProductsComponent {
         rating: 4.6,
         image: "https://resources.cdn-kaspi.kz/img/m/p/h00/h89/84023738925086.png?format=preview-large",
         link: "https://kaspi.kz/shop/p/meta-quest-3-512-gb-113525753/?c=750000000",
+        category: "Accessories",
         likes: 0
       },
       {
@@ -183,6 +183,7 @@ export class ProductsComponent {
         rating: 4.8,
         image: "https://resources.cdn-kaspi.kz/img/m/p/ha3/h07/84108189630494.jpg?format=preview-large",
         link: "https://kaspi.kz/shop/p/apple-airpods-pro-2-with-type-c-wireless-charging-belyi-113677582/?c=750000000",
+        category: "Accessories",
         likes: 0
       },
       {
@@ -191,17 +192,31 @@ export class ProductsComponent {
         rating: 4.7,
         image: "https://resources.cdn-kaspi.kz/img/m/p/h76/h31/82569351266334.jpg?format=preview-large",
         link: "https://kaspi.kz/shop/p/samsung-galaxy-watch6-44-mm-grafitovyi-chernyi-112368202/?c=750000000",
+        category: "Accessories",
         likes: 0
-      },
-    ]
-    }
+      }
+  ]
+
+  categories = [
+    { name: "Smartphones" },
+    { name: "Laptops" }
   ];
   
-  selectedCategory: string = "";
+  selectedCategory: string | null = null;
 
-  get filteredProducts() {
-    return this.selectedCategory
-      ? this.categories.find(c => c.name === this.selectedCategory)?.products || [] : [];
+  filteredProducts: any[] = [];
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.selectedCategory = params.get('category') || '';
+      this.filterProducts();
+    });
+  }
+
+  filterProducts() {
+    this.filteredProducts = this.products.filter(p => p.category === this.selectedCategory);
   }
   
   likeProduct(product: any) {
@@ -212,18 +227,9 @@ export class ProductsComponent {
   }  
   
   removeProduct(product: any) {
-    if (this.selectedCategory) {
-      let category = this.categories.find(c => c.name === this.selectedCategory);
-      if (category) {
-        category.products = category.products.filter(p => p !== product);
-      }
-    } else {
-      this.categories.forEach(category => {
-        category.products = category.products.filter(p => p !== product);
-      });
-    }
+    this.products = this.products.filter(p => p !== product);
+    this.filterProducts();
   }
-  
   
   share(productLink: string) {
     const message = encodeURIComponent(`Check out this product: ${productLink}`);
