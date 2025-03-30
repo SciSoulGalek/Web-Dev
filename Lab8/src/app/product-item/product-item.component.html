@@ -1,0 +1,13 @@
+<div class="product-card" *ngIf="product">
+  <h2>{{ product.name }}</h2>
+  <img [src]="product.image" [alt]="product.name">
+  <p>{{ product.description }}</p>
+  <p>⭐ {{ product.rating }}</p>
+  <a [href]="product.link" target="_blank">View Product</a>
+  <p>Likes: {{ product.likes }}</p>
+  <button (click)="product.likes = product.likes + 1">Like</button>
+  <br>
+  <a [routerLink]="['/products', product?.category || 'Smartphones']">Back to Products</a>
+</div>
+
+<p *ngIf="!product">Product not found.</p>

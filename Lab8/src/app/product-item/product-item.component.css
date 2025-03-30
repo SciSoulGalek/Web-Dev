@@ -1,0 +1,38 @@
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .product-card {
+    width: 95%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    background: white;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: 360px;
+    object-fit: contain;
+    border-radius: 5px;
+  }
+  
+  button {
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  
+  select {
+    width: 50%;
+    height: 40px;
+  }

@@ -1,0 +1,18 @@
+<h2>Products in {{ selectedCategory }}</h2>
+
+<div class="products" *ngIf="filteredProducts.length > 0">
+  <div class="product-card" *ngFor="let product of filteredProducts">
+    <img [src]="product.image" [alt]="product.name">
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.description }}</p>
+    <p>⭐ {{ product.rating }}</p>
+    <a [href]="product.link" target="_blank">View Product</a>
+    <button (click)="share(product.link)">Share on WhatsApp</button>
+    <p>Likes: {{ product.likes || 0 }}</p>
+    <button (click)="likeProduct(product)">Like</button>
+    <button (click)="removeProduct(product)">Remove</button>
+    <button [routerLink]="['/product', product.name]">View Details</button>
+  </div>
+</div>
+
+<p *ngIf="filteredProducts.length === 0">No products available in this category.</p>
