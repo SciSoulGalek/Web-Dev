@@ -8,11 +8,13 @@ class Category(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
-    price = models.FloatField()
     description = models.TextField()
-    count = models.IntegerField()
-    is_active = models.BooleanField(default=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="products")
+    rating = models.FloatField()
+    image = models.URLField(default="https://example.com/default.jpg")
+    link = models.URLField(default="https://example.com/")
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    likes = models.IntegerField(default=0)
+
 
     def __str__(self):
         return self.name

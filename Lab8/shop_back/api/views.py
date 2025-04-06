@@ -1,6 +1,6 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, generics
 from .models import Product, Category
 from .serializers import ProductSerializer, CategorySerializer
 from django.http import JsonResponse
@@ -48,3 +48,14 @@ def products_by_category(request, id):
     products = category.products.all()
     serializer = ProductSerializer(products, many=True)
     return Response(serializer.data)
+
+class CategoryProductsView(generics.ListAPIView):
+    serializer_class = ProductSerializer
+
+    def get_queryset(self):
+        category_id = self.kwargs.get("category_id")
+        return Product.objects.filter(category_id=category_id)
+
+class CategoryDetailView(generics.RetrieveAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
