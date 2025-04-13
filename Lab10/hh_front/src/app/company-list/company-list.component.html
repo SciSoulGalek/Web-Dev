@@ -1,0 +1,11 @@
+<h2>Companies</h2>
+<div *ngFor="let company of companies" class="company-card">
+  <button (click)="selectCompany(company.id)" class="btn-company">
+    {{ company.name }} ({{ company.city }})
+  </button>
+</div>
+
+<app-vacancy-list
+  *ngIf="selectedCompanyId"
+  [companyId]="selectedCompanyId">
+</app-vacancy-list>
